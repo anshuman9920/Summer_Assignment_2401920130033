@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<vector<int>> matrixReshape(vector<vector<int>>& mat, int r, int c) {
+        int m =mat.size();
+        int n= mat[0].size(); //this represent the column of old matrix
+       int  order = m*n;
+        if(r*c != order) return mat;
+        vector<vector<int>> res(r,vector<int>(c,0));
+        for(int i=0 ; i<order ; i++){
+            res[i/c][i%c] = mat[i/n][i%n];
+        }
+        return res;
+
+    }
+};
